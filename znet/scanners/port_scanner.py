@@ -6,7 +6,13 @@ import validators
 
 
 @cache
-async def scan_port(url, port):
+async def scan_port(url: str, port: int) -> str:
+	"""Асинхронная функция сканирования порта
+
+	Аргументы:
+	 + url: str - URL адрес
+	+ port: int - порт
+	""" 
 	if validators.url(url):
 		client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -16,5 +22,7 @@ async def scan_port(url, port):
 		else:
 			return f'{ip}:{port} открыт'
 	else:
-		print(f'Критическая ошибка: URL {url} не прошел валидацию')
+		msg = f'Критическая ошибка: URL {url} не прошел валидацию'
+		print(msg)
 		sys.exit()
+		return msg

@@ -8,6 +8,12 @@ from icecream import ic
 
 @cache
 async def send_request_get(url: str, timeout: int=1):
+	"""Асинхронная функция отправки HTTP get запроса
+
+	Аргументы:
+	 + url: str - URL адрес
+	+ timeout: int=1 - таймаут
+	"""
 	status_code = None
 	headers = None
 	content = None
