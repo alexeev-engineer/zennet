@@ -1,0 +1,11 @@
+[project]
+requires-python = ">=3.10"
+
+[tool.ruff]
+show-fixes = true
+lint.select = [
+	"E",
+	"F",
+	"UP",
+	"D"
+]
