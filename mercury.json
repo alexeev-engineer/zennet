@@ -1,0 +1,18 @@
+{
+	"owner": "alexeev-engineer",
+	"name": "zennet",
+	"description": "Молниеносно быстрый инструмент для анализа сетевого трафика",
+	"license": "GNU GPL 3",
+	"uuid": "92b109ad-18d8-4719-aa69-fe14c2063f88",
+	"arch": "amd64",
+	"os": "Linux",
+	"version": "latest",
+	"repository": "https://github.com/alexeev-engineer/zennet",
+	"assets": {
+		"latest_release": "{repository}/releases/latest/",
+		"files": {
+			"package_archive": "{name}-{version}_{arch}_{os}.tar.xz",
+			"download_version_release": "{repository}/releases/download/{version}/{package_archive}"
+		}
+	}
+}

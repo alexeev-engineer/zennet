@@ -1,11 +1,25 @@
 #! venv/bin/python3
-"""Быстрая и многофункциональная консольная программа для анализа сетевого трафика"""
+"""⚡️ Молниеносно быстрая и многофункциональная консольная программа для анализа сетевого трафика
+Blazing fast tool for network traffic analysis and working with network protocols
+Copyright (C) 2024  Alexeev Bronislav
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+"""
 import argparse
 from functools import cache
 from time import perf_counter
 from rich import print
 from rich.tree import Tree
 from icecream import ic
+from tqdm.asyncio import tqdm
 import asyncio
 
 # Модули
@@ -30,7 +44,7 @@ def write_to_file(filename: str, data: str) -> None:
 
 @cache
 async def send_get(url: str, timeout: int, output: str) -> None:
-	"""Функция создания асинхронной задачи отправки http get запроса
+	"""Функция создания асинхронной задачи отправки http get запроса.
 
 	Аргументы:
 	 + url: str - URL адрес
@@ -61,47 +75,54 @@ async def send_get(url: str, timeout: int, output: str) -> None:
 ```'''
 	
 	write_to_file(output, data)
-
 	print(data_tree)
 
 
 @cache
-async def start_port_scanner(url: str, ports: int, max_ports: int, output: str) -> None:
-	"""Асинхронная задача запуска сканера портов
+async def start_port_scanner(url: str, ports: str, max_ports: int, output: str) -> None:
+	"""Асинхронная задача запуска сканера портов.
 
 	Аргументы:
  + url: str - URL адрес
- + ports: int - порты
+ + ports: str - порты
  + max_ports: int - максимальное количество портов
  + output: str - название файла для сохранения лога
 	"""
+	print(f'Начинаем сканировать {url}')
 	text = f'# Результат сканирования портов по URL {url}:\n'
 	tasks = []
-	ports = []
-	
+	available_ports = []
+
 	# Если порты были указаны напрямую, а не просто максимальное число для сканироваия портов
 	if ports:
 		# Разделяем список портов
-		for port in ports.split(' '):
+		async for port in tqdm(ports.split(' '), desc='Создание задач', ascii=False, 
+								unit='задача', smoothing=0.5, colour='blue', 
+								bar_format='{desc}: {percentage:3.0f}%| {bar} | {n_fmt}/{total_fmt} {rate_fmt}{postfix}'):
 			# Добавляем в список задач цель сканировать порт
 			tasks.append(asyncio.create_task(scan_port(url, int(port))))
 	else:
 		# Если указано максимальное число для сканирования портов
-		for port in range(1, max_ports + 1):
+		async for port in tqdm(range(1, max_ports + 1), desc='Создание задач', ascii=False, 
+								unit='задача', smoothing=0.5, colour='blue', 
+								bar_format='{desc}: {percentage:3.0f}%| {bar} | {n_fmt}/{total_fmt} {rate_fmt}{postfix}'):
 			tasks.append(asyncio.create_task(scan_port(url, port)))
 
 	# Проходимся в итерации по каждой задаче и сообщаем, открыт ли он
-	for task in tasks:
+	async for task in tqdm(tasks, desc='Запуск задач', ascii=False, 
+							unit='задача', smoothing=0.5, colour='blue', 
+							bar_format='{desc}: {percentage:3.0f}%| {bar} | {n_fmt}/{total_fmt} {rate_fmt}{postfix}'):
 		data = await asyncio.gather(task)
 		if data[0].split(' ')[-1] == 'открыт':
-			print(f'[bold green]{data[0]}[/bold green]')
-			ports.append(data[0])
-		else:
-			print(f'[dim]{data[0]}[/dim]')
+			available_ports.append(data[0])
+		# else:
+		# 	print(f'[dim]{data[0]}[/dim]')
 		text += f'{data[0]}\n'
 
 	# Сообщаем, какие порты открыты (или вовсе нету открытых)
-	print(f'Список открытых портов: {" ".join(ports)}' if len(ports) > 0 else "Открытых портов нету")
+	if len(available_ports) > 0:
+		print(f'[bold green]{" ".join(available_ports)}[/bold green]')
+	print(f'Список открытых портов: {" ".join(available_ports)}' if len(available_ports) > 0 else "Открытых портов нету")
 
 	# Сохраняем вывод в файл
 	write_to_file(output, text)
@@ -114,7 +135,7 @@ async def main() -> None:
 	"""
 	program_started = perf_counter()
 
-	print('zennet v 0.2.3 @ alexeev-engineer\n')
+	print('⚡️ zennet v 0.2.3 @ alexeev-engineer\n')
 
 	parser = argparse.ArgumentParser(description='Невероятно быстрый инструмент для анализа сетевого трафика')
 	parser.add_argument("--url", type=str, help='URL адрес')
@@ -123,7 +144,7 @@ async def main() -> None:
 	parser.add_argument('--get', action='store_true', help='Отправить HTTP GET запрос')
 
 	parser.add_argument('--scan-ports', action='store_true', help='Сканировать порты')
-	parser.add_argument('--ports', help='Список портов для сканирования (приоритет выше --max-ports)')
+	parser.add_argument('--ports', type=str, help='Список портов для сканирования (приоритет выше --max-ports)')
 	parser.add_argument('--max-ports', type=int, default=2**16, help='Максимальное количество портов для сканирования')
 
 	args = parser.parse_args()
@@ -138,7 +159,6 @@ async def main() -> None:
 			print(f'Запрос выполнен за {round(total, 4)} сек.')
 		else:
 			print('Вы не задали URL')
-			exit()
 	elif args.scan_ports:
 		if args.url:
 			start = perf_counter()
@@ -147,13 +167,15 @@ async def main() -> None:
 			end = perf_counter()
 			total = end - start
 			print(f'Время работы сканера портов: {round(total, 4)} сек.')
+		else:
+			print('Вы не задали URL')
 	else:
 		print('[red]Вы не ввели ни одного аргумента. Используйте `--help` или `-h` для просмотра справки[/red]')
 
 	program_ended = perf_counter()
 	
 	program_work_time = round(program_ended - program_started, 4)
-	print(f'\nВремя исполнения программы: {program_work_time} сек')
+	print(f'\n⚡️ Время исполнения программы: {program_work_time} сек')
 
 
 if __name__ == '__main__':
