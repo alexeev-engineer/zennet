@@ -47,9 +47,11 @@ async def send_request_get(url: str, timeout: int=1):
 		host = urlparse(url).hostname
 		request = f"GET {path} HTTP/1.1\r\nHost:{host}\r\n\r\n"
 
+		# Создание сокета
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		sock.settimeout(timeout[0])
 		sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
 		response = b""
 
 		try:
