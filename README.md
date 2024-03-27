@@ -95,7 +95,7 @@ ZenNet is an Open Source project, and it only survives due to your feedback and 
 Project releases are available at [this link](https://github.com/alexeev-engineer/zennet/releases).
 
 ## Functional
-Here you can see what SQLRMT can already do and what else is planned to be added in the future:
+Here you can see what zennet can already do and what else is planned to be added in the future:
 
  - [x] Asynchrony support
  - [x] Logging
