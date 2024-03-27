@@ -111,6 +111,11 @@ Here you can see what zennet can already do and what else is planned to be added
  - [x] Logging
  - [x] Fast HTTP-get request
  - [x] Port scanner
+ - [x] Whois
+ - [ ] DNS black list scan
+ - [ ] Full network info
+ - [ ] TCP server/client
+ - [ ] Netcat analogue
  - [ ] Extensions support
  - [ ] Create GUI
 
