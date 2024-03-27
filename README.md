@@ -50,7 +50,7 @@ print(total)
 >>> 0.0277
 ```
 
-And with the help of zenmap, the speed increased by about **138** times!
+And with the help of zenmap, the speed increased by about **277** times!
 
 ```bash
  $ python3 zennet.py --get --url http://127.0.0.1:8000/login -o localhost_login_zennet.md

@@ -1,3 +1,15 @@
+commit 9d7ccbf3afcffa58c602e314341a94765ce21c13
+Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
+Date:   Wed Mar 27 23:13:20 2024 +0700
+
+    Remove makefile
+
+commit 4ea11d9565aaa36b0739b22e839ac7d2d999e7bf
+Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
+Date:   Wed Mar 27 23:12:38 2024 +0700
+
+    update changelog and readme
+
 commit 77506671fa45afbddd2abd198dab0d539026afe9
 Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
 Date:   Wed Mar 27 23:11:42 2024 +0700
