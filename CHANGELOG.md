@@ -1,3 +1,9 @@
+commit c0f23d67abdcc6dcacb57569775a8b1015149c43
+Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
+Date:   Thu Mar 28 00:11:55 2024 +0700
+
+    feat/fix/docs: add whois, update docs
+
 commit f143b3a0c4be225ca629b02ff54fac3b9f90533a
 Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
 Date:   Wed Mar 27 23:14:57 2024 +0700
