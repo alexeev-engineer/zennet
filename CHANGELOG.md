@@ -1,3 +1,15 @@
+commit 9008e46e96735db6af51eb9b51988f46294360b5
+Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
+Date:   Wed Mar 27 23:11:29 2024 +0700
+
+    update readme
+
+commit 8e30085618bab93063b14fc60f5423f5213569ea
+Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
+Date:   Wed Mar 27 23:09:09 2024 +0700
+
+    update changelog, fix readme and clean root dir
+
 commit 8b8c6f4cbbab0e140de3cce70ede4379f6f705fb
 Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
 Date:   Wed Mar 27 23:08:16 2024 +0700
