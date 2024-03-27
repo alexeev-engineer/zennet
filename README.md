@@ -2,7 +2,7 @@
     <img src="extra/zennet.png">
 </p>
 
-<p align="center">ZenNet ⚡️</p>
+<p align="center"><i>Network analysis has never been so fast! ⚡️</i></p>
 <br>
 <p align="center">
     <img src="https://img.shields.io/github/languages/top/alexeev-engineer/zennet?style=for-the-badge">
@@ -16,6 +16,8 @@
  > *Fast as UDP, stable as TCP*
 
 **ZenNet** is blazing-fast and feature-rich console program for analyzing network traffic.
+
+This program uses my [python library paintlog](https://github.com/alexeev-engineer/paintlog) for beautiful logging.
 
 > [!CAUTION]
 > **zennet currently only supports Linux® distributions.** Other operating systems such as Windows, MacOS, BSD are not supported.

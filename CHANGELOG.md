@@ -1,3 +1,9 @@
+commit 8b8c6f4cbbab0e140de3cce70ede4379f6f705fb
+Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
+Date:   Wed Mar 27 23:08:16 2024 +0700
+
+    fix/style/refactor: translate to english, update docs, update changelog, update license, use paintlog
+
 commit 09502f07dad85067800dc1632a056b3ddf1478fc
 Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
 Date:   Mon Mar 11 23:00:50 2024 +0700
