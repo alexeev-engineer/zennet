@@ -1,3 +1,9 @@
+commit f143b3a0c4be225ca629b02ff54fac3b9f90533a
+Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
+Date:   Wed Mar 27 23:14:57 2024 +0700
+
+    Update readme and changelog
+
 commit 9d7ccbf3afcffa58c602e314341a94765ce21c13
 Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
 Date:   Wed Mar 27 23:13:20 2024 +0700
