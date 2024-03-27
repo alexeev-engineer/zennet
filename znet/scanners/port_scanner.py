@@ -1,3 +1,14 @@
+#! venv/bin/python3
+"""Zennet.
+
+Blazing fast tool for network traffic analysis and working with network protocols
+Copyright (C) 2024  Alexeev Bronislav
+License: BSD 3-Clause
+Link: https://github.com/alexeev-engineer/zennet.
+
+Contacts: bro.alexeev@inbox.ru, t.me/alexeev_dev
+
+"""
 import sys
 import socket
 from functools import cache
@@ -7,33 +18,32 @@ import validators
 
 @cache
 async def scan_port(url: str, port: int) -> str:
-	"""Асинхронная функция сканирования порта.
+	"""Scan one port.
 
-	Аргументы:
-	 + url: str - URL адрес
-	+ port: int - порт
+	Arguments:
+	---------
+	 + url: str - url address
+	 + port: int - port for scan
+	
 	""" 
-	# Валидация URL
 	if validators.url(url):
-		# Создание сокета и его настройка
+		# Create socket
 		client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		client.settimeout(1)
 		client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-		# Получаем IP адрес
+		# Get IP address
 		ip = socket.gethostbyname(urlparse(url).hostname)
 
-		# Проверка подключения по порту
+		# Try connect
 		if client.connect_ex((ip, port)):
-			return f'{ip}:{port} закрыт'
+			return f'{ip}:{port} closed'
 		else:
-			return f'{ip}:{port} открыт'
+			return f'{ip}:{port} opened'
 
-		# Закрываем сокет
+		# Close socket
 		client.close()
 	else:
-		# URL не прошел валидацию
-		msg = f'Критическая ошибка: URL {url} не прошел валидацию'
-		print(msg)
+		msg = f'Critical error: invalid URL {url}'
 		sys.exit()
 		return msg

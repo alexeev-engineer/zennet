@@ -1,19 +1,41 @@
-# zennet ⚡️
-Молниеносно быстрая и многофункциональная консольная программа для анализа сетевого трафика
+<p align="center">
+    <img src="extra/zennet.png">
+</p>
 
-## Преимущества zennet ⚡️
-Программа zennet невероятно быстра, благодаря оптимизированным вычислениям, асинхронному подходу и многопоточности.
+<p align="center">ZenNet ⚡️</p>
+<br>
+<p align="center">
+    <img src="https://img.shields.io/github/languages/top/alexeev-engineer/zennet?style=for-the-badge">
+    <img src="https://img.shields.io/github/languages/count/alexeev-engineer/zennet?style=for-the-badge">
+    <img src="https://img.shields.io/github/stars/alexeev-engineer/zennet?style=for-the-badge">
+    <img src="https://img.shields.io/github/issues/alexeev-engineer/zennet?style=for-the-badge">
+    <img src="https://img.shields.io/github/last-commit/alexeev-engineer/zennet?style=for-the-badge">
+    </br>
+</p>
 
-Также в zennet есть красивый вывод данных и сохранение логов в файл (формат markdown) из коробки.
+ > *Fast as UDP, stable as TCP*
 
-## Сравнение скорости ⚡️
-Функции zenmap более быстрые, чем функции из стандартных библиотек Python
+**ZenNet** is blazing-fast and feature-rich console program for analyzing network traffic.
 
-### Отправка GET-запроса при помощи стандартной requests и zenmap ⚡️
-Запрос при помощи стандартной библиотеки отправляется примерно за ~0.027 секунд
+> [!CAUTION]
+> **zennet currently only supports Linux® distributions.** Other operating systems such as Windows, MacOS, BSD are not supported.
+
+> [!CAUTION]
+> At the moment, zennet is **under active development**, many things may not work, and this version is not recommended for use (all at your own risk).
+
+## Advantages of zennet ⚡️
+The zennet program is incredibly fast thanks to optimized calculations, asynchronous approach and multi-threading. 
+
+Zennet also has beautiful data output and saves logs to a file (markdown format) out of the box.
+
+## Speed ⚡️
+zennet functions are faster than functions from standard Python libraries
+
+### Sending a GET request using standard requests and zennet ⚡️
+A request using the standard library is sent in approximately *~0.027* seconds
 
 ```python
-# стандартная библиотека requests
+# Standart library
 import requests
 from time import perf_counter
 
@@ -26,10 +48,9 @@ print(total)
 >>> 0.0277
 ```
 
-А при помощи zenmap скорость выросла примерно в 138 раз!
+And with the help of zenmap, the speed increased by about **138** times!
 
 ```bash
-# Отправляем http get запрос на 127.0.0.1:8000/login и сохраняем вывод в localhost_login_zennet.md
  $ python3 zennet.py --get --url http://127.0.0.1:8000/login -o localhost_login_zennet.md
 
 >>> zennet v 0.2.2 @ alexeev-engineer
@@ -43,19 +64,49 @@ print(total)
     Время исполнения программы: 0.275 сек
 ```
 
-## Установка ⚡️
-Для установки у вас должен стоять Python >=3.9, pip и git.
+## Requirements
+To run the software you will have to install the necessary programs and dependencies, such as:
+
+ + Python interpreter (>=3.10)
+ + PIP package manager (>=22.0)
+ + Python libraries (listed in [requirements.txt](./requirements.txt))
+
+## Installion ⚡️
+Don't forget to install dependencies and requirements: python>=3.10, pip and git.
+
+> [!NOTE]
+> If your shell is fish, then instead of `source venv/bin/activate` use `source venv/bin/activate.fish`.
 
 ```bash
-git clone https://github.com/alexeev-engineer/zennet.git 			# Клонирование репозитория
-cd zennet															# Переход в директорию с проектом
-python3 -m venv venv												# Создание виртуального окружения
-source venv/bin/activate											# Активация виртуального окружения
-pip3 install -r requirements.txt									# Установка зависимостей
+git clone https://github.com/alexeev-engineer/zennet.git 			# Clone repo
+cd zennet															# Change directory
+python3 -m venv venv												# Create virtual environment
+source venv/bin/activate											# Activate venv
+pip3 install -r requirements.txt									# Install requirements.
 ```
 
-## Документация ⚡️
-Вы можете получить документацию по использованию zennet по [этой ссылке](./docs/index.md)
+## Contact and support
+If you have questions about using zennet, then create an [issue](https://github.com/alexeev-engineer/zennet/issues/new) in the repository or write to me at bro.alexeev@inbox.ru.
 
-## Поддержка ⚡️
-Если вы обнаружили ошибку или хотите предложить что-то свое, то создайте [issue](https://github.com/alexeev-engineer/zennet/issues/new).
+You can also write to me on Telegram: [@alexeev_dev](https://t.me/alexeev_dev)
+
+ZenNet is an Open Source project, and it only survives due to your feedback and support!
+
+Project releases are available at [this link](https://github.com/alexeev-engineer/zennet/releases).
+
+## Functional
+Here you can see what SQLRMT can already do and what else is planned to be added in the future:
+
+ - [x] Asynchrony support
+ - [x] Logging
+ - [x] Fast HTTP-get request
+ - [x] Port scanner
+ - [ ] Extensions support
+ - [ ] Create GUI
+
+## Copyright
+ZenNet® - blazing fast tool network tool.
+
+Copyright © 2024 Alexeev Bronislav. All rights reversed.
+
+The registered trademark Linux® is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
