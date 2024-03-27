@@ -55,15 +55,23 @@ And with the help of zenmap, the speed increased by about **138** times!
 ```bash
  $ python3 zennet.py --get --url http://127.0.0.1:8000/login -o localhost_login_zennet.md
 
->>> zennet v 0.2.2 @ alexeev-engineer
-    GET /login HTTP/1.1 Host:127.0.0.1  
-    ├── Код ответа:2 0 0
-    ├── Заголовок ответа: {'Server': 'Werkzeug/3.0.1 Python/3.12.1', 'Date': 'Sun, 
-    │   25 Feb 2024 16:17:43 GMT', 'Content-Type': 'text/html; charset=utf-8', 
-    │   'Content-Length': '1549', 'Vary': 'Cookie', 'Connection': 'close'}
-    ├── Время выполнения запроса: 0.0002
-    └── Весь лог сохранен в localhost_login_zennet.md
-    Время исполнения программы: 0.275 сек
+>>> ⚡ zennet v {__version__} @ alexeev-engineer
+
+pydbg_obj | url: 'https://habr.com/ru/'
+[INFO 2024-03-27 23:12:01.158209] Send HTTP-get request on https://habr.com/ru/
+pydbg_obj | request: 'GET /ru/ HTTP/1.1  Host:habr.com'
+pydbg_obj | status_code: 302
+pydbg_obj | filename: '/dev/null'
+GET /ru/ HTTP/1.1  Host:habr.com
+├── Response code:302
+├── Headers: {'Server': 'QRATOR', 'Date': 'Wed, 27 Mar 2024 16:11:38 GMT', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '47', 'Connection': 'keep-alive',
+│   'Keep-Alive': 'timeout=15', 'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'X-Download-Options': 'noopen', 'X-Content-Type-Options': 'nosniff',
+│   'X-XSS-Protection': '1; mode=block', 'Location': 'https://habr.com/ru/feed/', 'Vary': 'Accept', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+│   'X-Request-Id': 'd7ce5a7f643240e4021e6d1944179122', 'X-Request-Geoip-Country-Code': 'RU', 'X-Request-Detected-Device': 'desktop'}
+└── Log saved in /dev/null
+Request execution time: 0.0001 seconds
+
+⚡ Software execution time: 3.249 seconds
 ```
 
 ## Requirements
