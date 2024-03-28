@@ -1,3 +1,15 @@
+commit cd0eb78295862831c864a4d18593271281346139
+Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
+Date:   Thu Mar 28 21:38:39 2024 +0700
+
+    feat/fix/docs: improve info about url, add info about local network and port, work on docs has begun
+
+commit 7749acf625e335c16e19c9b9475947eb363450b2
+Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
+Date:   Thu Mar 28 00:43:01 2024 +0700
+
+    update changelog
+
 commit 99d04aa8281faed5bd5ab62ccf9f62e130da8818
 Author: Alexeev Bronislav <bro.alexeev@inbox.ru>
 Date:   Thu Mar 28 00:16:55 2024 +0700
