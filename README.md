@@ -30,6 +30,9 @@ The zennet program is incredibly fast thanks to optimized calculations, asynchro
 
 Zennet also has beautiful data output and saves logs to a file (markdown format) out of the box.
 
+## Documentation
+You can view the documentation on using zennet at [this link](./extra/index.md)
+
 ## Speed ⚡️
 zennet functions are faster than functions from standard Python libraries
 
@@ -74,12 +77,13 @@ Request execution time: 0.0001 seconds
 ⚡ Software execution time: 3.249 seconds
 ```
 
-## Requirements
+## Requirements ⚡️
 To run the software you will have to install the necessary programs and dependencies, such as:
 
  + Python interpreter (>=3.10)
  + PIP package manager (>=22.0)
  + Python libraries (listed in [requirements.txt](./requirements.txt))
+ + net-tools (debian: `sudo apt install net-tools`; arch: `sudo pacman -Sy net-tools`)
 
 ## Installion ⚡️
 Don't forget to install dependencies and requirements: python>=3.10, pip and git.
@@ -95,7 +99,7 @@ source venv/bin/activate											# Activate venv
 pip3 install -r requirements.txt									# Install requirements.
 ```
 
-## Contact and support
+## Contact and support ⚡️
 If you have questions about using zennet, then create an [issue](https://github.com/alexeev-engineer/zennet/issues/new) in the repository or write to me at bro.alexeev@inbox.ru.
 
 You can also write to me on Telegram: [@alexeev_dev](https://t.me/alexeev_dev)

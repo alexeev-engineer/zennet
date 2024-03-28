@@ -1,23 +1,20 @@
 #!/usr/bin/python3
 import ipwhois
 import whois
+import socket
 
 
-async def ipwhois_info(ip: str) -> dict:
-	"""Информация о IP по IPWhois.
-
-	+ ip: str - IP адрес
-	"""
+async def ipwhois_info(url: str) -> dict:
+	"""Info about ip by whois api."""
+	ip = socket.gethostbyname(url)
 	results = ipwhois.IPWhois(ip).lookup_whois()
 	
 	return results
 
 
-async def whois_info(ip: str) -> list:
-	"""Информация о IP по WhoIs.
-
-	+ ip: str - IP адрес
-	"""
+async def whois_info(url: str) -> list:
+	"""Info about ip by whois module."""
+	ip = socket.gethostbyname(url)
 	results = whois.whois(ip)
 	
 	domain = f"Domain: {results['domain_name']}"
